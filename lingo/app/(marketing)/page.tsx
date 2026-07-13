@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <div>
-        <Button>Click Me</Button>
+        <p>This is a marketing page</p>
       </div>
     </>
   );
