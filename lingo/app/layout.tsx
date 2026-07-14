@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import {
   ClerkProvider,
-  Show,
-  SignInButton,
-  SignUpButton,
-  UserButton,
+ 
 } from "@clerk/nextjs";
 import { Geist, Geist_Mono, Nunito, Inter } from "next/font/google";
 import "./globals.css";
