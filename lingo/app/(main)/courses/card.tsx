@@ -45,7 +45,7 @@ export const Card = ({
       />
       <p
       className="text-neutral-700 text-center font-bold mt-3"
-      ></p>
+      >{title}</p>
     </div>
   );
 };
