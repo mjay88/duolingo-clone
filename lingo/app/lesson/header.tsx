@@ -1,5 +1,5 @@
 import { Progress } from "@/components/ui/progress";
-import { useExitModal } from "@/public/store/use-exit-model";
+import { useExitModal } from "@/store/use-exit-model";
 import { InfinityIcon, X } from "lucide-react";
 import Image from "next/image";
 
@@ -14,7 +14,7 @@ export const Header = ({
   percentage,
   hasActiveSubscription,
 }: Props) => {
-  const {open} = useExitModal();
+  const { open } = useExitModal();
   return (
     <header className="lg:pt-[50px] pt-[20px] px-10 flex gap-x-7 items-center justify-between max-w-[1140px] mx-auto w-full">
       <X
