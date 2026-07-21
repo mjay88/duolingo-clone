@@ -54,6 +54,9 @@ export const getUnits = cache(async () => {
   //calculate if a lesson is completed
   const normalizedData = data.map((unit) => {
     const lessonsWithCompletedStatus = unit.lessons.map((lesson) => {
+      if (lesson.challenges.length === 0) {
+        return { ...lesson, completed: false };
+      }
       const allCompletedChallenges = lesson.challenges.every((challenge) => {
         return (
           challenge.challengeProgress &&
@@ -133,8 +136,8 @@ export const getCourseProgress = cache(async () => {
 
 export const getLesson = cache(async (id?: number) => {
   const { userId } = await auth();
- //if getting a typescript error, like we were in the where: eq(challengeProgress.userId, userId) call, (asking for method overload), you may need 
- //to add a null check 
+  //if getting a typescript error, like we were in the where: eq(challengeProgress.userId, userId) call, (asking for method overload), you may need
+  //to add a null check
   if (!userId) {
     return null;
   }
