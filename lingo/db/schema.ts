@@ -107,7 +107,6 @@ export const challengeProgress = pgTable("challenge_progress", {
   challengeId: integer("challenge_id")
     .references(() => challenges.id, { onDelete: "cascade" })
     .notNull(),
-  text: text("text").notNull(),
   completed: boolean("completed").notNull().default(false),
 });
 

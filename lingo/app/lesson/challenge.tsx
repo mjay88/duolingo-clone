@@ -1,6 +1,5 @@
 import {
   challengeOptions,
-  challengeOptionsRelations,
   challenges,
 } from "@/db/schema";
 import { cn } from "@/lib/utils";

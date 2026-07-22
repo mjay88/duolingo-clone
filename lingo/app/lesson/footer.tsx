@@ -8,12 +8,13 @@ type Props = {
   onCheck: () => void;
   status: "correct" | "wrong" | "none" | "completed";
   disabled?: boolean;
-  lessonId?: boolean;
+  lessonId?: number;
 };
 
 export const Footer = ({ onCheck, status, disabled, lessonId }: Props) => {
   useKey("Enter", onCheck, {}, [onCheck]);
-  const isMobile = useMedia("(max-width: 1024px");
+  //TODO: look into using isClient to avoid hydration mismatch
+  const isMobile = useMedia("(max-width: 1024px", false);
 
   return (
     <footer
@@ -30,7 +31,7 @@ export const Footer = ({ onCheck, status, disabled, lessonId }: Props) => {
             Nicely done!
           </div>
         )}
-        {status === "correct" && (
+        {status === "wrong" && (
           <div className="text-rose-500 font-bold text-base lg:text-2xl flex items-center">
             <XCircle className="h-6 w-6 lg:h-10 lg:w-10 mr-4" />
             Try again.
