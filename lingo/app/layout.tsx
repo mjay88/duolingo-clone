@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import {
-  ClerkProvider,
- 
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 import { Geist, Geist_Mono, Nunito, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 import { ExitModal } from "@/components/modals/exit-modal";
+import { HeartsModal } from "@/components/modals/hearts-modal";
+import { PracticeModal } from "@/components/modals/practice-modal";
 
-
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,12 +39,14 @@ export default function RootLayout({
         geistSans.variable,
         geistMono.variable,
         "font-sans",
-        inter.variable,
+        inter.variable
       )}
     >
       <body className="min-h-full flex flex-col">
         <Toaster />
+        <HeartsModal />
         <ExitModal />
+        <PracticeModal />
         <ClerkProvider afterSignOutUrl="/">{children}</ClerkProvider>
       </body>
     </html>
