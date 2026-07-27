@@ -10,6 +10,8 @@ import {
   getUnits,
   getUserProgress,
 } from "@/db/queries";
+import { Promo } from "@/components/promo";
+import { Quests } from "@/components/quests";
 
 const LearnPage = async () => {
   const userProgressData = getUserProgress();
@@ -59,6 +61,9 @@ const LearnPage = async () => {
           points={userProgress.points}
           hasActiveSubscription={false}
         ></UserProgress>
+        
+        <Promo />
+        <Quests points={userProgress.points} />
       </StickyWrapper>
     </div>
   );
